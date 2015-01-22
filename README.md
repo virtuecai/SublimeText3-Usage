@@ -120,3 +120,16 @@ SublimeText3-Usage
 1. 按住Ctrl点击鼠标左键，就会出现多个光标指针，或能选择多处文本，然后就可以批量编辑或输入。
 1. 按住shift，右键可以拖拽选区。
 1. 光标放在某处，按住Ctrl+Alt+Up键，或Ctrl+Alt+Down键，光标能上下延伸，然后左右键可移动.
+
+##Ubuntu下搜狗输入法中文输入问题
+1. 先安装， 官方下载deb，或者 sudo apt-get install sublimt-text
+2. 卸载： sudo apt-get remove sublimt-text，sudo dkpg -r sublime-text
+3. 安装编译环境
+4. sudo apt-get install build-essential
+5. sudo apt-get install libgtk2.0-dev
+6. 下载sublime-imfix.c源文件： http://pan.baidu.com/s/1eQcPeE2 ， 如果链接失效请给邮件联系我。
+7. 进入该文件所在目录编译该文件，命令：gcc -shared -o libsublime-imfix.so sublime-imfix.c  `pkg-config --libs --cflags gtk+-2.0` -fPIC
+8. 在其目录下将编译生产的libsublime-imfix.so拷贝到sublime的安装目录下,命令：sudo cp ./libsublime-imfix.so /opt/sublime-text
+9. sudo vim /usr/bin/subl, 在exec上面一行加入： export LD_PRELOAD=/opt/sublime_text/libsublime-imfix.so
+10. 修改: sudo vim /usr/share/applications/sublime_text.desktop , Exec=/opt/sublime-text/sublime-text改为： Exec=/usr/bin/subl
+11. 完成， 重新打开sublime测试即可。
