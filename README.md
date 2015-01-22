@@ -121,7 +121,7 @@ SublimeText3-Usage
 1. 按住shift，右键可以拖拽选区。
 1. 光标放在某处，按住Ctrl+Alt+Up键，或Ctrl+Alt+Down键，光标能上下延伸，然后左右键可移动.
 
-##Ubuntu下搜狗输入法中文输入问题
+##Ubuntu下搜狗输入法中文输入问题（http://jingyan.baidu.com/article/9225544687fe61851748f453.html）
 1. 先安装， 官方下载deb，或者 sudo apt-get install sublimt-text
 2. 卸载： sudo apt-get remove sublimt-text，sudo dkpg -r sublime-text
 3. 安装编译环境
